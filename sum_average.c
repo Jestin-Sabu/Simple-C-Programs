@@ -1,3 +1,4 @@
+//Program to find the sum and average of elements stored in an array
 #include<stdio.h>
 #include<malloc.h>
 
