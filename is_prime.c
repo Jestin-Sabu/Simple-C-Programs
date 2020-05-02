@@ -3,7 +3,7 @@
 
 int main()
 {
-  int a, jestin = 0, i;
+  int a, b = 0, i;
   printf("Enter the number : ");
   scanf("%d", &a);
   if(a < 2)
@@ -14,9 +14,9 @@ int main()
   for(i=2;i<a;i++);
   {
     if(a%i==0)
-      jestin = 1;
+      b = 1;
   }
-  if(jestin==0)
+  if(b==0)
     printf("%d is a Prime Number.\n", a);
   else
     printf("%d is not a Prime Number.\n", a);
