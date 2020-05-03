@@ -9,7 +9,7 @@ char* read()
   str = (char*)malloc(sizeof(char));    //dynamically allocating first position of str
   while((c=getchar()) !='\n')
   {
-    str = (char*)realloc(str, (sizeof(char)));   //extending the sizing of str with demand
+    str = (char*)realloc(str, (sizeof(char)));   //extending the size of str with demand
     *(str+i) = c;
     i++;
   }
