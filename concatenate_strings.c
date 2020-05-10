@@ -1,6 +1,6 @@
 //Program to read two strings(each one ending with a $ symbol), store them in an array and concatenate without using string library functions
 #include<stdio.h>
-#include<malloc.h>
+#include<stdlib.h>
 
 char* read()
 {
