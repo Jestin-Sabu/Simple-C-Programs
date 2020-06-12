@@ -24,7 +24,7 @@ void write(char filename[20], s_t p)                      // write details to th
     FILE *f = fopen(filename, "a");
     if(f == NULL)
     {
-        fprintf(stderr,"Failed to oprn the file");
+        fprintf(stderr,"Failed to open the file");
         exit -1;
     }
     fprintf(f,"%s %d %f\n", p.name, p.roll_no, p.marks);
