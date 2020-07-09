@@ -123,4 +123,5 @@ int main(void)
     free_matrix(m1, n);
     free_matrix(m2, n);
   }
+  return 0;
 }
