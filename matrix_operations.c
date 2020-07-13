@@ -68,13 +68,13 @@ void print(int **m, int n)
 int** create_matrix(int n)                             //creates a new matrix of required size
 {
   int **m = malloc(n*sizeof(*m));
-  for(int i = 0;i < n; i++)
-    m[i] = malloc(n*sizeof(*m[i]));
   if(m == NULL)
   {
     fprintf(stderr," Failed to allocate memory");
     exit(1);
   }
+  for(int i = 0;i < n; i++)
+    m[i] = malloc(n*sizeof(*m[i]));
   return m;
 }
 
