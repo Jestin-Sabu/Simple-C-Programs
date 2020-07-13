@@ -102,8 +102,9 @@ int main(void)
     printf("2. Matrix Multipication\n");
     printf("3. Matrix Transpose\n");
     printf("4. Exit\n");
-    printf("   Enter your Choice\n");
+    printf("   Enter your Choice: ");
     scanf("%d", &ch);
+    printf("\n");
     switch (ch)
     {
       case 1: addition(m1, m2, result,  n);
