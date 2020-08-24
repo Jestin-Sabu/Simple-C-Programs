@@ -20,12 +20,12 @@ void push(stack_t* s){                  //inserts an element to the stack
     }
 }
 
-void print(stack_t s){               //prints the elements in the stack
+void print(stack_t s){
+    printf("\n");              //prints the elements in the stack
     if(s.top == -1){
         printf("Stack is Empty !!!");
     }
     else{
-        printf("\n");
         for(int i = 0; i<=s.top; i++){
             printf("%d ", s.A[i]);
         }
