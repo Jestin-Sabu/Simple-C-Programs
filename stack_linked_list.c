@@ -3,18 +3,18 @@
 #include<stdio.h>
 #include<malloc.h>
 
-typedef struct stack{
+typedef struct stack{                               //structure that represent each node in the linked list
   struct stack* NEXT;
   int DATA;
 }stack_t;
 
-stack_t* createnode(){
+stack_t* createnode(){                                //function to create new node of the linked list
   stack_t* temp = malloc(sizeof(temp));
   temp->NEXT = NULL;
   return temp;
 }
 
-void push(stack_t* HEAD){
+void push(stack_t* HEAD){                             //function to push data to the linked list
   int temp;
   printf("   Enter the integer data to insert : ");
   scanf("%d", &temp);
@@ -24,7 +24,7 @@ void push(stack_t* HEAD){
   HEAD->NEXT = new;
 }
 
-void pop(stack_t* HEAD){
+void pop(stack_t* HEAD){                              //function to pop data out of the linked list
   stack_t* ptr = HEAD->NEXT;
   if(ptr == NULL){
     printf("   Empty stack, failed to pop\n");
@@ -35,7 +35,7 @@ void pop(stack_t* HEAD){
   free(ptr);
 }
 
-void print(stack_t* HEAD){
+void print(stack_t* HEAD){                          //function to print data in the linked list
   stack_t* ptr = HEAD->NEXT;
   printf("   ");
   while(ptr != NULL){
@@ -44,7 +44,7 @@ void print(stack_t* HEAD){
   }
 }
 
-void freestack(stack_t* HEAD){
+void freestack(stack_t* HEAD){                //function to free heap
   stack_t* temp;
   stack_t* ptr = HEAD->NEXT;
   free(HEAD);
