@@ -17,7 +17,7 @@ char* read()
   return str;
 }
 
-char* concat(char *str1, char *str2)
+char* concat(char *str1, char *str2)      //function to concatenate two strings and return the new string
 {
   char *str3;
   int i,j;
