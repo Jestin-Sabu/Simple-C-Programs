@@ -7,13 +7,13 @@ int main()
     int n,a;
     printf("Enter the array size : ");
     scanf("%d", &n);
-    int *A = malloc(n*sizeof(*A));
+    int *A = malloc(n*sizeof(*A));        //dynamicaly allocating the array
     printf("Enter the elements\n");
     for(int i=0; i<n; i++)
         scanf("%d", &A[i]);
     printf("Enter the element to search : ");
     scanf("%d", &a);
-    for(int i = 0; i<n-1; i++){
+    for(int i = 0; i<n-1; i++){           //sorting the array
         int minIndex = i;
         for(int j=i+1; j<n; j++){
             if(A[j] < A[minIndex])
