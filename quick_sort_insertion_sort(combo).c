@@ -8,17 +8,14 @@ void swap(int *a, int *b){
 }
 
 int QuickSort(int* A, int left, int right){
-  int pivot = left++;
-  while(left<right){
-    while(A[left]<A[pivot])
-      left++;
-    while(A[right]>A[pivot])
-      right--;
-    if(left<right)
-      swap(A+left, A+right);
-  }
-  swap(A+right, A+pivot);
-  return right;
+  int i = left + 1;
+    int pivot = A[left] ;
+    for(int j=left+1; j<=right; j++) {
+          if(A[j]<pivot)
+                 swap(A+(i++), A+j);
+   }
+   swap(A+left, A+(--i)) ;
+   return i;
 }
 
 void InsertionSort(int* A, int left, int right){

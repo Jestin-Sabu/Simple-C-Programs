@@ -13,7 +13,7 @@ void main(void)
   {
     k = i;
     for(int j = i+1; j<n; j++)
-      if(A[j]<A[i])
+      if(A[j]<A[k])
         k=j;
     if(k != i){
       temp = A[i];
