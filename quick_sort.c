@@ -9,13 +9,13 @@ void swap(int *a, int *b){
 
 int QuickSortHelper(int* A, int left, int right){
   int i = left + 1;
-    int pivot = A[left] ;
-    for(int j=left+1; j<=right; j++) {
-          if(A[j]<pivot)
-                 swap(A+(i++), A+j);
-   }
-   swap(A+left, A+(--i)) ;
-   return i;
+  int pivot = A[left] ;
+  for(int j=left+1; j<=right; j++) {
+        if(A[j]<pivot)
+               swap(A+(i++), A+j);
+ }
+ swap(A+left, A+(--i)) ;
+ return i;
 }
 
 void QuickSort(int* A, int left, int right){

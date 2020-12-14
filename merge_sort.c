@@ -1,72 +1,40 @@
-/* Program to Sort two arrays and merge into a new array dynamically*/
+//Program to sort an arrays in ascending order using merge sort algorithm
 #include <stdio.h>
-#include<malloc.h>
 
-int* assign(int *n)                     //Read value into a dynamic array and returns the array
-{
-    int i;
-    printf("Enter the no. of elements: ");
-    scanf("%d,",n);
-    int *p = malloc((*n)*sizeof(int));
-    printf("Enter the elements : ");
-    for(i=0;i<*n;i++)
-        scanf("%d",p+i);
-    return p;
+void Merge(int* A, int l, int m, int r){
+  int n1 = m-l+1;
+  int n2 = r-m;
+  int B[n1], C[n2], i,j,k;
+  for(i=0; i<n1; i++)
+    B[i] = A[l+i];
+  for(i=0; i<n2; i++)
+    C[i] = A[m+i+1];
+  for(i=0, j=0, k=l; i<n1 && j<n2; k++)
+    A[k] = B[i]<=C[j]?B[i++]:C[j++];
+  while(i<n1)
+    A[k++] = B[i++];
+  while(j<n2)
+    A[k++] = C[j++];
 }
 
-void swap(int *a, int *b)            //function to swap the values two variables
-{
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+void MergeSort(int* A, int l, int r){
+  if(l<r){
+    int m = (l+r-1)/2;
+    MergeSort(A, l, m);
+    MergeSort(A, m+1, r);
+    Merge(A, l, m, r);
+  }
 }
 
-void sort(int *p, int n)                 //quick sort function (ascending order)
-{
-    int i,j;
-    for(i=0;i<n;i++)
-    {
-        for(j=0;j<=i;j++)
-        {
-            if(*(p+i)<*(p+j))
-                swap(p+i, p+j);
-        }
-    }
-}
-
-int* merge(int *A, int *B, int a, int b)      //merge two arrays in the ascending order
-{
-    int n=0,i=0,j=0;
-    int *p = malloc((a+b)*sizeof(int));
-    while(i<a && j<b)
-    {
-        if(*(A+i) < *(B+j))
-            *(p+n) = *(A+i++);
-        else
-            *(p+n)= *(B+j++);
-        n++;
-    }
-    while(i<a)
-        *(p+n++) = *(A+i++);
-    while(j<b)
-        *(p+n++) = *(B+j++);
-    return p;
-}
-
-int main(void)            //main function
-{
-    int *A = NULL, *B = NULL, *merge_sorted = NULL;
-    int a, b, c, i;
-    printf("First Array\n");
-    A = assign(&a);
-    printf("Second Array\n");
-    B = assign(&b);
-    sort(A, a);
-    sort(B, b);
-    merge_sorted = merge( A, B, a, b);
-    c = a+b;
-    printf("Merge Sorted Array : ");
-    for(i=0;i<c;i++)
-        printf("%d ", *(merge_sorted+i));
-    return 0;
+int main(void){
+  int A[100], n;
+  printf("Enter the no. of elements : ");
+  scanf("%d", &n);
+  printf("Enter the elements : ");
+  for(int i=0; i<n; i++)
+    scanf("%d", &A[i]);
+  MergeSort(A, 0, n-1);
+  for(int i=0; i<n; i++)
+    printf("%d ", A[i]);
+  return 0;
 }
